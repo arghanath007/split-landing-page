@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --left-bg-color: rgba(138, 3, 3, 0.494);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+
+  --left-btn-hover-color: rgba(236, 84, 87, 1);
+  --right-btn-hover-color: rgba(2, 84, 2, 0.604);
+
+  --hover-width: 80%;
+  --other-width: 20%;
+  --mobile-hover-width: 80%;
+  --mobile-other-width: 20%;
+
+  --speed: 1000ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: rgb(0, 222, 252);
+  border: #000 solid 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 15rem;
+  padding: 1.5rem;
+  text-transform: uppercase;
+}
+
+.split.left .btn:hover {
+  background: var(--left-btn-hover-color);
+  border-color: var(--left-btn-hover-color);
+}
+.split.right .btn:hover {
+  background: var(--right-btn-hover-color);
+  border-color: var(--right-btn-hover-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left: 0;
+  background: url("./Images/Red_Dead_Redemption_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center center; */
+  background-position: 20% 50%;
+}
+
+.split.left h1 {
+  top: 10%;
+  left: 50%;
+}
+
+.split.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right: 0;
+  background: url("./Images/Doom_Eternal.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center center; */
+  background-position: 100% 50%;
+}
+
+.split.right h1 {
+  top: 10%;
+  left: 50%;
+}
+.split.right .btn {
+  left: 51%;
+}
+
+.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+.split.right,
+.split.left,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+.hover-left .right {
+  width: var(--other-width);
+}
+.hover-right .right {
+  width: var(--hover-width);
+}
+.hover-right .left {
+  width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 1.5rem;
+    top: 10%;
+    left: 50%;
+    font-weight: 900;
+  }
+
+  /* .split.left h1 {
+    color: rgb(28, 233, 1);
+  } */
+
+  .btn {
+    left: 50%;
+    width: 8rem;
+    padding: 1.2rem;
+  }
+
+  .split.left {
+    background: url("./Images/RDR2-mobile.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .split.right {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hover-left .left {
+    width: var(--mobile-hover-width);
+  }
+
+  .hover-left .right {
+    width: var(--mobile-other-width);
+  }
+  .hover-right .right {
+    width: var(--mobile-hover-width);
+  }
+  .hover-right .left {
+    width: var(--mobile-other-width);
+  }
+}
